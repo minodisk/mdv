@@ -29,6 +29,8 @@ do ->
   isLocalFile = /^file:\/\//i.test(url)
   return unless isLocalFile
 
+  [idFetch, cache] = []
+
   onReadyStateChange = ->
     clearTimeout idFetch
     if xhr.readyState is 4 and xhr.status isnt 404
@@ -41,9 +43,10 @@ do ->
     xhr.send()
 
   onFetched = (text) ->
+    return if text is cache
     app.update text
+    cache = text
 
-  [idFetch] = []
   xhr = new XMLHttpRequest
   xhr.onreadystatechange = onReadyStateChange
   fetch()
