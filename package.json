@@ -1,0 +1,31 @@
+{
+  "name": "mdv",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dest/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minodisk/mv.git"
+  },
+  "author": "Daisuke Mino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minodisk/mv/issues"
+  },
+  "homepage": "https://github.com/minodisk/mv",
+  "dependencies": {
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.9.2",
+    "css-loader": "^0.11.0",
+    "github-markdown-css": "^2.0.8",
+    "gulp": "^3.8.11",
+    "imports-loader": "^0.6.3",
+    "md2react": "^0.6.3",
+    "react": "^0.13.2",
+    "style-loader": "^0.11.0",
+    "webpack": "^1.8.9"
+  }
+}

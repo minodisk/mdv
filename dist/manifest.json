@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "mdv",
+  "description": "markdown viewer",
+  "version": "0.0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*.md",
+        "file:///*/*.md"
+      ],
+      "js": ["mdv-content.js"]
+    }
+  ],
+
+  "permissions": [
+    "contextMenus",
+    "tabs"
+  ]
+}
+
