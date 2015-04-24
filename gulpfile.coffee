@@ -14,7 +14,6 @@ gulp.task 'default', [
 gulp.task 'build', [
   'webpack-prod'
   'manifest'
-  'deploy'
 ]
 
 do ->
@@ -56,6 +55,8 @@ do ->
     webpack c, callback
     return
 
+gulp.task 'test', ->
+
 gulp.task 'manifest', ->
   gulp
     .src ['src/manifest.yml']
@@ -63,7 +64,23 @@ gulp.task 'manifest', ->
     .pipe yaml()
     .pipe gulp.dest 'dist'
 
-gulp.task 'deploy', ->
+###
+curl \
+-H "Authorization: Bearer ya29.XwFAO-SHiUwaDFxiiPqK-gsrgOGq7-jUzmxtgsXGC0YRjW4I2hzEumGMcASvzfMl_utk29NTYeH4Xw"  \
+-H "x-goog-api-version: 2" \
+-X POST \
+-T dist.zip \
+-v \
+https://www.googleapis.com/upload/chromewebstore/v1.1/items
+
+curl \
+-H "Authorization: Bearer ya29.XwFAO-SHiUwaDFxiiPqK-gsrgOGq7-jUzmxtgsXGC0YRjW4I2hzEumGMcASvzfMl_utk29NTYeH4Xw"  \
+-H "x-goog-api-version: 2" \
+-X PUT \
+-T dist.zip \
+-v \
+https://www.googleapis.com/upload/chromewebstore/v1.1/items/ipaedoakpcpcapkijmoamckhcdjcclbh
+###
 
 gulp.task 'watch', ->
   gulp

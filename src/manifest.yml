@@ -2,7 +2,7 @@ manifest_version: 2
 
 name: mdv
 description: markdown viewer
-version: 0.0.6
+version: 0.0.7
 content_scripts:
   - matches:
       - "*://*/*.md"
@@ -16,4 +16,3 @@ content_scripts:
 permissions:
   - tabs
   - "<all_urls>"
-  # - "\u003Call_urls>"
